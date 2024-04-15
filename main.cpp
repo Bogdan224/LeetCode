@@ -9,8 +9,6 @@
 
 using std::vector;
 
-
-
 // Task 1
 std::vector<int> twoSum(std::vector<int> &nums, int target)
 {
@@ -217,7 +215,7 @@ int reverse(int x)
         x = x / 10;
     }
 
-    if (result > INT_MAX || result < INT_MIN)
+    if (result > INT32_MAX || result < INT32_MIN)
     {
         return 0;
     }
@@ -250,8 +248,8 @@ int myAtoi(std::string s)
         i++;
     }
     num = negative ? -num : num;
-    num = (num > INT_MAX) ? INT_MAX : num;
-    num = (num < INT_MIN) ? INT_MIN : num;
+    num = (num > INT32_MAX) ? INT32_MAX : num;
+    num = (num < INT32_MIN) ? INT32_MIN : num;
     return (int)num;
 }
 
@@ -393,75 +391,6 @@ std::string longestCommonPrefix(std::vector<std::string> &strs)
     return tmp;
 }
 
-void main()
-{
-    // Task 1
-    /*
-    std::vector<int> vec = { 1,2,3,4,5 };
-    twoSum(vec, 5);
-    */
-    // Task 2
-    /*
-    ListNode* l1 = new ListNode(2);
-    l1->next = new ListNode(4);
-    l1->next->next = new ListNode(3);
-
-    ListNode* l2 = new ListNode(5);
-    l2->next = new ListNode(6);
-    l2->next->next = new ListNode(4);
-
-    ListNode* l3 = addTwoNumbers(l1, l2);
-    */
-    // Task 3
-    /*
-    std::string s = "dvdf";
-    std::cout « lengthOfLongestSubstring(s);
-    */
-    // Task 4
-    /*
-    std::vector<int> vec1 = { 1,2 };
-    std::vector<int> vec2 = { 3,4 };
-    std::cout « findMedianSortedArrays(vec1, vec2);
-    */
-    // Task 5
-    /*
-    std::cout « longestPalindrome("abcdbbfcba");
-    */
-    // Task 6
-    /*
-    std::cout « convert("PAYPALISHIRING", 0);
-    */
-    // Task 7
-    /*
-    std::cout « reverse(-123);
-    */
-    // Task 8
-    /*
-    std::cout « myAtoi(" -42");
-    */
-    // Task 9
-    /*
-    std::cout « isPalindrome(122321);
-    */
-    // Task 11
-    /*
-    std::vector<int> vector = { 1,8,6,2,5,4,8,3,7 };
-    std::cout « maxArea(vector);
-    */
-    // Task 12
-    /*
-    std::cout « intToRoman(1994);
-    */
-    // Task 13
-    /*
-    std::cout « romanToInt("MMCCCXCIX");
-    */
-    // Task 14
-    std::vector<std::string> strs = {"ab", "a"};
-    std::cout << longestCommonPrefix(strs);
-    return;
-}
-
 // 15 Task
 vector<vector<int>> threeSum(vector<int> &nums)
 {
@@ -542,6 +471,71 @@ int threeSumClosest(vector<int> &nums, int target)
 
 int main()
 {
+    // Task 1
+    /*
+    std::vector<int> vec = { 1,2,3,4,5 };
+    twoSum(vec, 5);
+    */
+    // Task 2
+    /*
+    ListNode* l1 = new ListNode(2);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(3);
+
+    ListNode* l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(4);
+
+    ListNode* l3 = addTwoNumbers(l1, l2);
+    */
+    // Task 3
+    /*
+    std::string s = "dvdf";
+    std::cout << lengthOfLongestSubstring(s);
+    */
+    // Task 4
+    /*
+    std::vector<int> vec1 = { 1,2 };
+    std::vector<int> vec2 = { 3,4 };
+    std::cout << findMedianSortedArrays(vec1, vec2);
+    */
+    // Task 5
+    /*
+    std::cout << longestPalindrome("abcdbbfcba");
+    */
+    // Task 6
+    /*
+    std::cout << convert("PAYPALISHIRING", 0);
+    */
+    // Task 7
+    /*
+    std::cout << reverse(-123);
+    */
+    // Task 8
+    /*
+    std::cout << myAtoi(" -42");
+    */
+    // Task 9
+    /*
+    std::cout << isPalindrome(122321);
+    */
+    // Task 11
+    /*
+    std::vector<int> vector = { 1,8,6,2,5,4,8,3,7 };
+    std::cout << maxArea(vector);
+    */
+    // Task 12
+    /*
+    std::cout << intToRoman(1994);
+    */
+    // Task 13
+    /*
+    std::cout << romanToInt("MMCCCXCIX");
+    */
+    // Task 14
+    // std::vector<std::string> strs = {"ab", "a"};
+    // std::cout << longestCommonPrefix(strs);
+
     // 15 Task
     //  vector<int> nums = {0, 0, 0};
     //  auto vec = threeSum(nums);
