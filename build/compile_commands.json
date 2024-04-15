@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/bogdan/Programming/c++/LeetCode/15_3Sum/build",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/main.dir/main.cpp.o -c /home/bogdan/Programming/c++/LeetCode/15_3Sum/main.cpp",
+  "file": "/home/bogdan/Programming/c++/LeetCode/15_3Sum/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+}
+]

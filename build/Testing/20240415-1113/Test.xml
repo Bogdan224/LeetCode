@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-clang++"
+	BuildStamp="20240415-1113-Experimental"
+	Name="bogdan-huawei"
+	Generator="ctest-3.29.0"
+	CompilerName="/usr/bin/clang++"
+	CompilerVersion="14.0.0"
+	OSName="Linux"
+	Hostname="bogdan-huawei"
+	OSRelease="6.5.0-27-generic"
+	OSVersion="#28~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Mar 15 10:51:06 UTC 2"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="140"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="7731"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4036.57"
+	>
+	<Testing>
+		<StartDateTime>Apr 15 18:14 +07</StartDateTime>
+		<StartTestTime>1713179674</StartTestTime>
+		<TestList/>
+		<EndDateTime>Apr 15 18:14 +07</EndDateTime>
+		<EndTestTime>1713179674</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
