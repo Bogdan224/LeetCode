@@ -6,7 +6,9 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <stack>
 
+using std::string;
 using std::vector;
 
 // Task 1
@@ -272,45 +274,45 @@ bool isPalindrome(int x)
 }
 
 // Task 10(unresolved)
-bool isMatch(std::string s, std::string p)
-{
-    int i = 0;
-    bool isDot = false;
-    bool isStar = false;
-    std::string tmp;
-    while (p[i] != NULL)
-    {
-        if (p[i] == '.')
-        {
-            isDot = true;
-        }
-        else if (p[i] == '*')
-        {
-            isStar = true;
-        }
-        else
-        {
-            tmp += p[i];
-        }
-        i++;
-    }
-    i = 0;
+// bool isMatch(std::string s, std::string p)
+// {
+//     int i = 0;
+//     bool isDot = false;
+//     bool isStar = false;
+//     std::string tmp;
+//     while (p[i] != NULL)
+//     {
+//         if (p[i] == '.')
+//         {
+//             isDot = true;
+//         }
+//         else if (p[i] == '*')
+//         {
+//             isStar = true;
+//         }
+//         else
+//         {
+//             tmp += p[i];
+//         }
+//         i++;
+//     }
+//     i = 0;
 
-    if (!isDot && !isStar)
-    {
-        if (s == p)
-            return true;
-        else
-            return false;
-    }
+//     if (!isDot && !isStar)
+//     {
+//         if (s == p)
+//             return true;
+//         else
+//             return false;
+//     }
 
-    while (s[i] != NULL)
-    {
-        if (isStar)
-        {
-        }
-    }
-}
+//     while (s[i] != NULL)
+//     {
+//         if (isStar)
+//         {
+//         }
+//     }
+// }
 
 // Task 11
 int maxArea(std::vector<int> &height)
@@ -469,6 +471,162 @@ int threeSumClosest(vector<int> &nums, int target)
     return closest;
 }
 
+// 17 Task
+void backtrack(string combination, string next_digits, string phone_map[], vector<string> &output)
+{
+    if (next_digits.empty())
+    {
+        output.push_back(combination);
+    }
+    else
+    {
+        string letters = phone_map[next_digits[0] - '2'];
+        for (auto letter : letters)
+        {
+            backtrack(combination + letter, next_digits.substr(1), phone_map, output);
+        }
+    }
+}
+
+vector<string> letterCombinations(string digits)
+{
+    if (digits.empty())
+        return {};
+    vector<string> result;
+    string phone_map[] = {"abc", "def", "ghi",
+                          "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    backtrack("", digits, phone_map, result);
+    return result;
+}
+
+// 18 Task (unresolved)
+// vector<vector<int>> fourSum(vector<int>& nums, int target) {
+
+// }
+
+// 19 Task
+ListNode *removeNthFromEnd(ListNode *head, int n)
+{
+    // if (head == nullptr)
+    // {
+    //     return head;
+    // }
+    if (head->next == nullptr)
+    {
+        delete head;
+        return nullptr;
+    }
+    ListNode *pred = head;
+    ListNode *res = head;
+    int size = 0;
+    while (head != nullptr)
+    {
+        ++size;
+        head = head->next;
+    }
+    head = res;
+    if (size == n)
+    {
+        res = head->next;
+        delete head;
+        return res;
+    }
+
+    for (size_t i = 0; i < size - n; ++i)
+    {
+        if (head == nullptr)
+        {
+            return res;
+        }
+        pred = head;
+        head = head->next;
+    }
+    pred->next = head->next;
+    delete head;
+    return res;
+}
+
+// 20 Task
+bool isValid(string s)
+{
+    std::stack<char> stack;
+    for (auto item : s)
+    {
+        if (item == '(' || item == '{' || item == '[')
+        {
+            stack.push(item);
+        }
+        else
+        {
+            if (!stack.empty() && (stack.top() == '(' && item == ')' || stack.top() == '{' && item == '}' || stack.top() == '[' && item == ']'))
+            {
+                stack.pop();
+            }
+            else
+                return false;
+        }
+    }
+    return stack.empty();
+}
+
+ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+{
+    // Iterative approach
+    // if (list1 == NULL)
+    //     return list2;
+    // if (list2 == NULL)
+    //     return list1;
+
+    // ListNode *list3;
+    // if (list1->val > list2->val)
+    // {
+    //     list3 = new ListNode(list2->val);
+    //     list2 = list2->next;
+    // }
+    // else
+    // {
+    //     list3 = new ListNode(list1->val);
+    //     list1 = list1->next;
+    // }
+    // ListNode *ans = list3;
+    // while (list1 != nullptr && list2 != nullptr)
+    // {
+    //     if (list1->val < list2->val)
+    //     {
+    //         ans->next = new ListNode(list1->val);
+    //         list1 = list1->next;
+    //     }
+    //     else
+    //     {
+    //         ans->next = new ListNode(list2->val);
+    //         list2 = list2->next;
+    //     }
+    //     ans = ans->next;
+    // }
+    // if (list1 != nullptr)
+    // {
+    //     ans->next = list1;
+    // }
+    // else
+    // {
+    //     ans->next = list2;  
+    // }
+    // return list3;
+    
+    if (list1 == NULL)
+        return list2;
+    if (list2 == NULL)
+        return list1;
+    if(list1->val < list2->val){
+        list1->next = mergeTwoLists(list1->next, list2);
+        return list1;
+    }
+    else{
+        list2->next = mergeTwoLists(list1, list2->next);
+        return list2;
+    }
+}
+
 int main()
 {
     // Task 1
@@ -543,4 +701,33 @@ int main()
     // 16 Task
     // vector<int> nums = {-1,2,1,-4};
     // std::cout << threeSumClosest(nums, 1) << '\n';
+
+    // 17 Task
+    // string digits = "23";
+    // auto res = letterCombinations(digits);
+
+    // 19 Task
+    // ListNode* l1 = new ListNode(1);
+    // ListNode* head = l1;
+    // for (size_t i = 2; i < 3; i++)
+    // {
+    //     l1->next = new ListNode(i);
+    //     l1 = l1->next;
+    // }
+    // head = removeNthFromEnd(head, 2);
+    // l1 = head;
+    // while(l1 != nullptr)
+    // {
+    //     std::cout << l1->val;
+    //     l1 = l1->next;
+    // }
+
+    // 20 Task
+    // int x = isValid("]") == true ? 1 : 0;
+    // std::cout << x << std::endl;
+
+    // 21 Task
+    ListNode *l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+    ListNode *l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+    auto ans = mergeTwoLists(l1, l2);
 }
